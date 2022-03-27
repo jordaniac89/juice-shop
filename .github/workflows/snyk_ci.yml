@@ -12,6 +12,8 @@ jobs:
       -
         name: Snyk Check
         uses: snyk/actions/node@master
+        with:
+          command: monitor
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       -
