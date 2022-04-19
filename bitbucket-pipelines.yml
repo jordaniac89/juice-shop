@@ -13,7 +13,7 @@ pipelines:
               SNYK_TOKEN: "$SNYK_TOKEN"
               LANGUAGE: "npm"   # Required unless SNYK_TEST_JSON_INPUT is set
               DONT_BREAK_BUILD: "true" # Optional.
-              MONITOR: "true"  # Optional.
+              MONITOR: "false"  # Optional.
               # SEVERITY_THRESHOLD: "<low|medium|high|critical>" # Optional.
               # ORGANIZATION: "<string>" # Optional.
               # PROJECT_FOLDER: "<string>" # Optional.
