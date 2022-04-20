@@ -27,4 +27,9 @@ pipelines:
           - docker push jmiles6620/juice-shop
         services:
           - docker
+definitions:
+  services:
+    docker:
+      memory: 2048
+
 
