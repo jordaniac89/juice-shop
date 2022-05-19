@@ -32,6 +32,6 @@ steps:
       Contents: 'results.html'
       TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
-  - publish: $(System.DefaultWorkingDirectory)/results.html
+  - publish: $(Build.ArtifactStagingDirectory)/results.html
     artifact: Results.html
     displayName: 'publish results'
