@@ -22,7 +22,7 @@ steps:
     displayName: 'snyk install'
 
   - bash: |
-      snyk test --json > results.json || exit 0 
+      snyk test --json > results.json
       snyk-to-html -i results.json -o results.html
     displayName: 'snyk test no_threshold'
 
