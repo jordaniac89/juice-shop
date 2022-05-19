@@ -27,10 +27,10 @@ steps:
     displayName: 'snyk test no_threshold'
 
   - task: CopyFiles@2
-      inputs:
-        SourceFolder: '$(Build.SourcesDirectory)'
-        Contents: 'results.html'
-        TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    inputs:
+      SourceFolder: '$(Build.SourcesDirectory)'
+      Contents: 'results.html'
+      TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
   - publish: $(System.DefaultWorkingDirectory)/results.html
     artifact: Results.html
