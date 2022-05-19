@@ -22,4 +22,4 @@ jobs: # a collection of steps
           command: snyk test || exit 0
       - run: # run snyk test - run snyk test
           name: snyk monitor
-          command: snyk monitor --target-ref=circleci-juiceshop
+          command: snyk monitor --project-name=circleci-juiceshop
