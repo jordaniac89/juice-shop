@@ -21,6 +21,12 @@ steps:
       snyk auth $(SNYK_TOKEN)
     displayName: 'snyk install'
 
+  - task: SnykSecurityScan@1
+    inputs:
+      testType: 'app'
+      monitorWhen: 'always'
+      failOnIssues: true
+
   - bash: |
       snyk test --json > results.json
       snyk-to-html -i results.json -o results.html
