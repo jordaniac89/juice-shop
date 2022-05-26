@@ -30,8 +30,10 @@ steps:
 
   - bash: |
       snyk test --json > results.json
-      echo $?
+      DO_CONTINUE= $?
+      echo $DO_CONTINUE
       snyk-to-html -i results.json -o results.html
+      exit $DO_CONTINUE
     displayName: 'snyk test no_threshold'
 
   - task: CopyFiles@2
