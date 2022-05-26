@@ -30,6 +30,7 @@ steps:
 
   - bash: |
       snyk test --json > results.json
+      echo $?
       snyk-to-html -i results.json -o results.html
     displayName: 'snyk test no_threshold'
 
