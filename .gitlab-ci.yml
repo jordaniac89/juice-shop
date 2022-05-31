@@ -11,4 +11,4 @@ snyk_scan:
   script:
     - npm install -g snyk
     - snyk auth $SNYK_TOKEN
-    - snyk test || 0
+    - snyk test || exit 0
