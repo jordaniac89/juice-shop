@@ -6,7 +6,6 @@ pipelines:
         size: 2x
         name: Build and Test
         caches:
-          - node
         script:
           - docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD
           - docker build -t jmiles6620/juice-shop .
@@ -23,9 +22,5 @@ pipelines:
               # DEBUG: "<boolean>" # Optional.
         services:
           - docker
-definitions:
-  services:
-    docker:
-      memory: 7128
 
 
