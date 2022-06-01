@@ -15,7 +15,7 @@ pipelines:
               SNYK_TOKEN: "$SNYK_TOKEN"
               LANGUAGE: "docker"   # Required unless SNYK_TEST_JSON_INPUT is set
               IMAGE_NAME: "jmiles6620/juice-shop"
-              DONT_BREAK_BUILD: "false" # Optional.
+              DONT_BREAK_BUILD: "true" # Optional.
               # SEVERITY_THRESHOLD: "<low|medium|high|critical>" # Optional.
               # ORGANIZATION: "<string>" # Optional.
               # TARGET_FILE: "<string>" # Optional.
