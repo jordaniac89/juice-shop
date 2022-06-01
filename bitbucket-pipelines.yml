@@ -3,6 +3,7 @@ image: node:10.15.3
 pipelines:
   default:
     - step:
+        size: 2x
         name: Build and Test
         caches:
           - node
@@ -25,6 +26,6 @@ pipelines:
 definitions:
   services:
     docker:
-      memory: 4096
+      memory: 2048
 
 
