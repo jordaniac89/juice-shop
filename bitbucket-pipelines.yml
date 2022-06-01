@@ -9,17 +9,14 @@ pipelines:
         script:
           - docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD
           - docker build -t jmiles6620/juice-shop .
-          - docker push jmiles6620/juice-shop
-          - npm install
           - pipe: snyk/snyk-scan:0.5.1  #using snyk plugin
             variables:
               SNYK_TOKEN: "$SNYK_TOKEN"
-              LANGUAGE: "npm"   # Required unless SNYK_TEST_JSON_INPUT is set
+              LANGUAGE: "docker"   # Required unless SNYK_TEST_JSON_INPUT is set
+              IMAGE_NAME: "jmiles6620/juice-shop"
               DONT_BREAK_BUILD: "true" # Optional.
-              MONITOR: "false"  # Optional.
               # SEVERITY_THRESHOLD: "<low|medium|high|critical>" # Optional.
               # ORGANIZATION: "<string>" # Optional.
-              # PROJECT_FOLDER: "<string>" # Optional.
               # TARGET_FILE: "<string>" # Optional.
               # EXTRA_ARGS: "<string>" # Optional.
               # DEBUG: "<boolean>" # Optional.
@@ -28,6 +25,6 @@ pipelines:
 definitions:
   services:
     docker:
-      memory: 2048
+      memory: 4096
 
 
