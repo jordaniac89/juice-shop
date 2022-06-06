@@ -31,6 +31,11 @@ jobs:
         name: snyk to html
         run: |
           snyk-to-html -i snyk.json -o results.html
+      -
+        uses: actions/upload-artifact@v3
+        with:
+          name: vuln_report
+          path: results.html
 
       #   name: Set up Docker Buildx
       #   uses: docker/setup-buildx-action@v1
