@@ -1,14 +1,12 @@
-image: node:latest
-
-include:
-  - template: Dependency-Scanning.gitlab-ci.yml
-  - template: SAST.gitlab-ci.yml
-
-variables:
-  SAST_EXCLUDED_PATHS: "frontend/src/assets/private/**"
-
 snyk_scan:
+  image: node:latest
   script:
     - npm install -g snyk
+    - npm install snyk-to-html -g
     - snyk auth $SNYK_TOKEN
-    - snyk test || exit 0
+    - snyk code test --json-file-output=results.json
+
+  artifacts:
+    when: always
+    paths:
+      - snyk_results.html

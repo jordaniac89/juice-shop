@@ -13,6 +13,7 @@ i18n/*.invalid
 !data/static/i18n/*.json
 data/chatbot/*.*
 !data/chatbot/.gitkeep
+.dccache
 
 # TF
 secret.auto.tfvars
