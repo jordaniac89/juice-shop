@@ -19,7 +19,4 @@ jobs: # a collection of steps
           command: snyk auth $SNYK_TOKEN
       - run: # run snyk test - run snyk test
           name: snyk test
-          command: snyk test || exit 0
-      - run: # run snyk test - run snyk test
-          name: snyk monitor
-          command: snyk monitor --target-ref=circleci-juiceshop
+          command: snyk code test
