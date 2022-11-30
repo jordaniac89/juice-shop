@@ -1,0 +1,31 @@
+image: node:10.15.3
+
+pipelines:
+  default:
+    - step:
+        size: 2x
+        name: Build and Test
+        caches:
+          - node
+        script:
+          - docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD
+          - docker pull jmiles6620/juice-shop
+          - pipe: snyk/snyk-scan:0.5.1  #using snyk plugin
+            variables:
+              SNYK_TOKEN: "$SNYK_TOKEN"
+              LANGUAGE: "docker"   # Required unless SNYK_TEST_JSON_INPUT is set
+              IMAGE_NAME: "jmiles6620/juice-shop"
+              DONT_BREAK_BUILD: "true" # Optional.
+              # SEVERITY_THRESHOLD: "<low|medium|high|critical>" # Optional.
+              # ORGANIZATION: "<string>" # Optional.
+              # TARGET_FILE: "<string>" # Optional.
+              # EXTRA_ARGS: "<string>" # Optional.
+              DEBUG: "true" # Optional.
+        services:
+          - docker
+definitions:
+  services:
+    docker:
+      memory: 2048
+
+
