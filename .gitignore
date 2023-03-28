@@ -70,3 +70,4 @@ config/*.yml
 !config/tutorial.yml
 !config/oss.yml
 kubeconfig_*
+/.metadata/
