@@ -13,6 +13,18 @@ i18n/*.invalid
 !data/static/i18n/*.json
 data/chatbot/*.*
 !data/chatbot/.gitkeep
+.dccache
+
+# TF
+secret.auto.tfvars
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+tfplan.binary
 
 # Build
 .nyc_output/
@@ -57,3 +69,5 @@ config/*.yml
 !config/unsafe.yml
 !config/tutorial.yml
 !config/oss.yml
+kubeconfig_*
+/.metadata/

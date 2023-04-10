@@ -29,10 +29,11 @@ steps:
 #      failOnIssues: true
 
   - bash: |
-      snyk test --json > results.json
-      DO_CONTINUE=$?
+      snyk test
+      $EXIT_CODE= $?
       snyk-to-html -i results.json -o results.html
-      exit $DO_CONTINUE
+      exit $EXIT_CODE
+
     displayName: 'snyk test no_threshold'
 
   - task: CopyFiles@2
