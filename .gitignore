@@ -13,7 +13,7 @@ i18n/*.invalid
 !data/static/i18n/*.json
 data/chatbot/*.*
 !data/chatbot/.gitkeep
-.dccache
+*.dccache
 
 # TF
 secret.auto.tfvars
@@ -70,3 +70,4 @@ config/*.yml
 !config/tutorial.yml
 !config/oss.yml
 kubeconfig_*
+/.metadata/

@@ -4,6 +4,4 @@ ignore: {}
 patch: {}
 exclude:
   global:
-    - models/address.js
-    - package.json
-    - package-lock.json
+    - ./lib/insecurity.js
