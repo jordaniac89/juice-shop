@@ -51,7 +51,7 @@ module.exports = function productReviews () {
       } else {
         res.status(403).json({ error: 'Not allowed' })
       }
-    }, () => {
+    }, ()z => {
       res.status(400).json({ error: 'Wrong Params' })
     })
   }
