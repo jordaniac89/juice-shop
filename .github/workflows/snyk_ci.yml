@@ -26,19 +26,28 @@ jobs:
           cache: 'npm'
 
       - run: npm install
-
-      - run: npm i -g snyk
-
+      - run: npm i -g snyk # note you can also use the snyk setup github action here, I'm just installing via NPM
       - run: npm i -g snyk-to-html
 
       - run: snyk auth ${{ secrets.SNYK_TOKEN }}
 
       - name: run test
         run: |
-          snyk test --json | snyk-to-html -o build/result.html
+          snyk monitor --target-name="my_target_from_GH"
+
+      - name: run test
+        run: |
+          snyk test --json --target-name="my_os_target_from_GH" | snyk-to-html -o build/os_result.html
+          snyk code test --report --target-name="my_code_target_from_GH" | snyk-to-html -o build/code_result.html
 
       - name: Use the Upload Artifact GitHub Action
         uses: actions/upload-artifact@v2
         with:
           name: results
-          path: build/results.html
+          path: build/os_results.html
+
+      - name: Use the Upload Artifact GitHub Action
+        uses: actions/upload-artifact@v2
+        with:
+          name: results
+          path: build/code_results.html
