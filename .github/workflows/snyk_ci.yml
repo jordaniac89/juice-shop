@@ -42,7 +42,7 @@ jobs:
       - name: run code test
         if: always()
         run: |
-          snyk code test --report --project-name ="my_code_target_from_GH" --json-file-output=code_results.json
+          snyk code test --report --project-name="my_code_target_from_GH" --json-file-output=code_results.json
 
       - name: run html
         if: always()
