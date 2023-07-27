@@ -30,23 +30,31 @@ jobs:
 
       - run: snyk auth ${{ secrets.SNYK_TOKEN }}
 
-      - name: run test
+      - name: run monitor
         run: |
           snyk monitor --target-name="my_target_from_GH"
 
       - name: run tests
         run: |
-          snyk test --json --target-name="my_os_target_from_GH"
-          snyk code test --report --target-name="my_code_target_from_GH"
+          snyk test --target-name="my_os_target_from_GH" --json-output-file=os_results.json
+          snyk code test --report --target-name="my_code_target_from_GH" --json-output-file=code_results.json
+
+      - name: run html
+        if: always()
+        run: |
+          snyk-to-html -i os_results.json -o os_results.html
+          snyk-to-html -i code_results.json -o code_results.html
 
       - name: Use the Upload Artifact GitHub Action
+        if: always()
         uses: actions/upload-artifact@v2
         with:
           name: results
-          path: build/os_results.html
+          path: os_results.html
 
       - name: Use the Upload Artifact GitHub Action
+        if: always()
         uses: actions/upload-artifact@v2
         with:
           name: results
-          path: build/code_results.html
+          path: code_results.html
