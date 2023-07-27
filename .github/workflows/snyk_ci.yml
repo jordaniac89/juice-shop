@@ -34,10 +34,15 @@ jobs:
         run: |
           snyk monitor --target-name="my_target_from_GH"
 
-      - name: run tests
+      - name: run os test
+        if: always()
         run: |
-          snyk test --target-name="my_os_target_from_GH" --json-output-file=os_results.json
-          snyk code test --report --target-name="my_code_target_from_GH" --json-output-file=code_results.json
+          snyk test --target-name="my_os_target_from_GH" --json-file-output=os_results.json
+
+      - name: run code test
+        if: always()
+        run: |
+          snyk code test --report --target-name="my_code_target_from_GH" --json-file-output=code_results.json
 
       - name: run html
         if: always()
