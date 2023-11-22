@@ -4,4 +4,3 @@ ignore: {}
 patch: {}
 exclude:
   global:
-    - ./lib/insecurity.js

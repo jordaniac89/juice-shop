@@ -32,12 +32,12 @@ jobs:
 
       - name: run monitor
         run: |
-          snyk monitor --target-name="my_target_from_GH"
+          snyk monitor --target-reference="my_target_from_GH"
 
       - name: run os test
         if: always()
         run: |
-          snyk test --target-name="my_os_target_from_GH" --json-file-output=os_results.json
+          snyk test --target-reference="my_os_target_from_GH" --json-file-output=os_results.json
 
       - name: run code test
         if: always()
