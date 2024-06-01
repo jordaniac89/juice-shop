@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+    <libraryInfo home="/Users/jordanmiles/.p2/pool/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.macosx.aarch64_17.0.2.v20220201-1208" version="17.0.2"/>
+    <libraryInfo home="/Library/Java/JavaVirtualMachines/jdk-17.0.2.jdk/Contents/Home" version="17.0.2"/>
+    <libraryInfo home="/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home" version="11.0.15"/>
+    <libraryInfo home="/Users/jordanmiles/.p2/pool/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.macosx.aarch64_17.0.2.v20220201-1208/jre" version="17.0.2"/>
+    <libraryInfo home="/Library/Java/JavaVirtualMachines/zulu-18.jdk/Contents/Home" version="18"/>
+</libraryInfos>

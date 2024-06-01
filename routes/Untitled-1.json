@@ -1,0 +1,10 @@
+{
+    "data": {
+        "type": "sbom_test",
+        "attributes":{ 
+            "sbom": {
+
+            }
+        }
+    }
+}

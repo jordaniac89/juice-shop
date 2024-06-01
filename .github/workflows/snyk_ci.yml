@@ -31,7 +31,7 @@ jobs:
         name: snyk to html
         run: |
           mkdir build
-          snyk code test --severity-level=high --json-output=results.json || 0
+          snyk iac test --severity-level=high --json-output=results.json || 0
           snyk-to-html -i results.json -o build/results.html
 
       -
