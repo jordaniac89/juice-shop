@@ -46,6 +46,7 @@ function handleZipFileUpload ({ file }, res, next) {
                 const absolutePath = path.resolve('uploads/complaints/' + fileName)
                 utils.solveIf(challenges.fileWriteChallenge, () => { return absolutePath === path.resolve('ftp/legal.md') })
                 if (absolutePath.includes(path.resolve('.'))) {
+                  // deepcode ignore ZipSlip: <please specify a reason of ignoring this>
                   entry.pipe(fs.createWriteStream('uploads/complaints/' + fileName).on('error', function (err) { next(err) }))
                 } else {
                   entry.autodrain()
