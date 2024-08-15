@@ -5,6 +5,7 @@ snyk_scan:
     - npm install snyk-to-html -g
     - snyk auth $SNYK_TOKEN
     - snyk code test --json-file-output=results.json
+    - snyk test
 
   artifacts:
     when: always

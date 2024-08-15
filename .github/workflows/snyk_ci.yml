@@ -25,20 +25,41 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
 
-      - run: npm install
-
-      - run: npm i -g snyk
-
+      - run: npm i -g snyk # note you can also use the snyk setup github action here, I'm just installing via NPM
       - run: npm i -g snyk-to-html
 
       - run: snyk auth ${{ secrets.SNYK_TOKEN }}
 
-      - name: run test
+      - name: run monitor
         run: |
-          snyk test --json | snyk-to-html -o build/result.html
+          snyk monitor --target-name="my_target_from_GH"
+
+      - name: run os test
+        if: always()
+        run: |
+          snyk test --target-name="my_os_target_from_GH" --json-file-output=os_results.json
+
+      - name: run code test
+        if: always()
+        run: |
+          snyk code test --report --project-name="my_code_target_from_GH" --json-file-output=code_results.json
+
+      - name: run html
+        if: always()
+        run: |
+          snyk-to-html -i os_results.json -o os_results.html
+          snyk-to-html -i code_results.json -o code_results.html
 
       - name: Use the Upload Artifact GitHub Action
+        if: always()
         uses: actions/upload-artifact@v2
         with:
           name: results
-          path: build/results.html
+          path: os_results.html
+
+      - name: Use the Upload Artifact GitHub Action
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: results
+          path: code_results.html
