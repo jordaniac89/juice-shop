@@ -1,4 +1,4 @@
-FROM node:12.18.4-buster
+FROM node:12.22-buster
 
 
 RUN echo 'deb     [trusted=yes check-valid-until=no] https://snapshot.debian.org/archive/debian/20211201T215332Z/ buster main \n\
