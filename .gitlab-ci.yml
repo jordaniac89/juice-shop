@@ -2,8 +2,10 @@ snyk_scan:
   image: node:latest
   script:
     - npm install -g snyk
+
     - npm install snyk-to-html -g
     - snyk auth $SNYK_TOKEN
+
     - snyk code test --json-file-output=results.json
     - snyk test
 
